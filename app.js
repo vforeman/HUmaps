@@ -1,8 +1,5 @@
 // server
-var redis = require('redis'),
-	jsonify = require('redis-jsonify'),
-	client = jsonify(redis.createClient()),
- 	express = require("express"),
+var express = require("express"),
  	logfmt = require("logfmt"),
  	app = express();
 var pg = require('pg');
