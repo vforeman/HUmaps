@@ -1,0 +1,42 @@
+{
+  "name": "humaps",
+  "version": "0.0.0",
+  "description": "map for howard campus",
+  "main": "app.js",
+  "dependencies": {
+    "jquery": "~2.1.0",
+    "leaflet": "~0.7.2",
+    "redis": "~0.10.1",
+    "redis-jsonify": "~0.0.4",
+    "requirejs": "~2.1.11",
+    "togeojson": "~0.7.0",
+    "twitter-bootstrap-node": "~0.1.2",
+    "logfmt": "~1.1.2",
+    "express": "~4.1.1",
+    "pg": "2.x"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "engines":{
+    "node":"0.10.x"
+    },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/vforeman/HUmaps.git"
+  },
+  "keywords": [
+    "howard",
+    "maps",
+    "hu",
+    "large",
+    "scale"
+  ],
+  "author": "Victor Foreman, AC Ellis",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/vforeman/HUmaps/issues"
+  },
+  "homepage": "https://github.com/vforeman/HUmaps"
+}
