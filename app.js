@@ -2,16 +2,16 @@
 var express = require("express"),
  	logfmt = require("logfmt"),
  	app = express();
-var pg = require('pg');
-var connectstr="postgres://rdpftghcchyuko:Idi_xg8XFtGbWHT4zMjzkAf4gV@ec2-54-83-201-54.compute-1.amazonaws.com:5432/dc22kl241vg2q1";
-
-pg.connect(process.env.DATABASE_URL, function(err, client) {
-  client.query('SELECT * FROM your_table', function(err, result) {
-    
-    if(err) return console.error(err);
-    console.log(result.rows);
-  });
+var colors = require('colors');
+var sq3 = require('sqlite3').verbose();
+var db = new sq3.Database('db/hufeatures.sqlite',function(err){
+	if(err == null){
+		console.log('opened hufeatures.sqlite'.green);
+	}else{
+		console.log(err);
+	}
 });
+
 // configuration =====================
 app.use(logfmt.requestLogger());
 app.use(express.static(__dirname + '/public'));  // set static files location /public/img for users
@@ -26,3 +26,6 @@ var port = Number(process.env.PORT || 5000);
 app.listen(port, function(){
 	console.log("Listening on " + port);
 });
+
+
+
