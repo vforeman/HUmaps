@@ -1,7 +1,8 @@
 // server
-var express = require("express"),
- 	logfmt = require("logfmt"),
- 	app = express();
+var express = require("express");
+var logfmt = require("logfmt"),
+ 	app = express(),
+ 	http = require('http');
 var colors = require('colors');
 var sq3 = require('sqlite3').verbose();
 var db = new sq3.Database('db/hufeatures.sqlite',function(err){
@@ -23,7 +24,7 @@ app.get('/', function(req, res){
 
 // listen 
 var port = Number(process.env.PORT || 5000);
-app.listen(port, function(){
+http.createServer(app).listen(port, function(){
 	console.log("Listening on " + port);
 });
 
