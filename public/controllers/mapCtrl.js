@@ -13,18 +13,23 @@ humap.on('click',onClickOffCampus);
 // 		console.log('loaded');
 // 	}
 // }).addTo(humap);
-
+var start_dropdown = document.getElementById('start_dropdown');
+var destination_dropdown = document.getElementById('destination_dropdown');
+var find_route = document.getElementById('find_route');
 var campus_toggle = document.getElementById('filter-campus');
 var sidewalk_toggle = document.getElementById('filter-sidewalkx');
 var building_toggle = document.getElementById('filter-buildings');
 var all_toggle = document.getElementById('filter-all');
-
-console.dir(Howard);
+var data = humap.geoJson;
+console.dir(data);
+console.dir(Howard.features);
 console.dir(sidewalk_toggle);
 console.dir(building_toggle);
-console.dir(humap.featureLayer);
+console.dir(humap.featureLayer.Feature);
+var points = Howard.features;
+console.dir(points);
 
-humap.featureLayer.on('ready', function(e) {
+humap.featureLayer.onclick= function(e) {
 
 	var line = [];
 
@@ -38,7 +43,7 @@ humap.featureLayer.on('ready', function(e) {
 
 	var polyline = L.polyline(line, polyline_options).addTo(humap);
 
-});
+};
 
 
 
@@ -47,6 +52,36 @@ function onClickOffCampus(e){
 		'\nclick off campus');
 }
 
+
+var line =[];
+start_dropdown.onclick = function(e){
+    // alert('pick a starting location');
+    for(var f=0;f<36;++f){
+        console.dir(points[f].properties);
+        var option = document.createElement('option');
+        option.text = points[f].properties.name;
+        option.value = points[f].geometry.coordinates;
+        this.add(option, 0);
+    }
+}
+find_route.onclick = function(e){
+
+    startpt = start_dropdown.value;
+    destpt = destination_dropdown.value;
+    alert('from: ' + startpt
+        + '\nto: ' + destpt);
+
+}
+destination_dropdown.onclick = function(e){
+    // alert('pick a starting location');
+    for(var f=0;f<36;++f){
+        console.dir(points[f].properties);
+        var option = document.createElement('option');
+        option.text = points[f].properties.name;
+        option.value = points[f].geometry.coordinates;
+        this.add(option, 0);
+    }
+}
 sidewalk_toggle.onclick = function(e) {
     building_toggle.className = '';
     campus_toggle.className = '';
