@@ -45,7 +45,7 @@ humap.featureLayer.onclick= function(e) {
 
 };
 
-
+console.dir(start_dropdown);
 
 function onClickOffCampus(e){
 	alert(e.latlng+
@@ -56,7 +56,9 @@ function onClickOffCampus(e){
 var line =[];
 start_dropdown.onclick = function(e){
     // alert('pick a starting location');
-    for(var f=0;f<36;++f){
+    console.dir(start_dropdown);
+    if(start_dropdown.options.length == 1)
+        for(var f=0;f<36;++f){
         console.dir(points[f].properties);
         var option = document.createElement('option');
         option.text = points[f].properties.name;
@@ -73,8 +75,8 @@ find_route.onclick = function(e){
 
 }
 destination_dropdown.onclick = function(e){
-    // alert('pick a starting location');
-    for(var f=0;f<36;++f){
+    if(destination_dropdown.options.length == 1)
+        for(var f=0;f<36;++f){
         console.dir(points[f].properties);
         var option = document.createElement('option');
         option.text = points[f].properties.name;
