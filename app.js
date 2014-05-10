@@ -3,14 +3,23 @@ var express = require("express");
 var logfmt = require("logfmt"),
  	app = express(),
  	http = require('http');
+var fs = require('fs');
+var file = 'db/hufeatures.sqlite';
+var exits = fs.existsSync(file);
 var colors = require('colors');
 var sq3 = require('sqlite3').verbose();
-var db = new sq3.Database('db/hufeatures.sqlite',function(err){
+var db = new sq3.Database(file,function(err){
 	if(err == null){
-		console.log('opened hufeatures.sqlite'.green);
+		console.log('opened howardmap.sql'.green);
 	}else{
 		console.log(err);
 	}
+db.each("SHOW tables", function(err, row) {
+      console.log(row);
+  });
+	
+	
+	
 });
 
 // configuration =====================

@@ -13,7 +13,8 @@
     "twitter-bootstrap-node": "~0.1.2",
     "logfmt": "~1.1.2",
     "express": "~4.1.1",
-    "sqlite3" : "2.2.3"
+    "sqlite3" : "2.2.3",
+    "fs":"*"
   },
   "devDependencies": {},
   "scripts": {

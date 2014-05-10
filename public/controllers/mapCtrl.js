@@ -30,7 +30,6 @@ var points = Howard.features;
 console.dir(points);
 
 humap.featureLayer.onclick= function(e) {
-
 	var line = [];
 
 	this.eachLayer(function(marker) {
@@ -42,7 +41,6 @@ humap.featureLayer.onclick= function(e) {
 	};
 
 	var polyline = L.polyline(line, polyline_options).addTo(humap);
-
 };
 
 console.dir(start_dropdown);
@@ -51,7 +49,6 @@ function onClickOffCampus(e){
 	alert(e.latlng+
 		'\nclick off campus');
 }
-
 
 var line =[];
 start_dropdown.onclick = function(e){
@@ -66,14 +63,19 @@ start_dropdown.onclick = function(e){
         this.add(option, 0);
     }
 }
-find_route.onclick = function(e){
 
+find_route.onclick = function(e){
     startpt = start_dropdown.value;
     destpt = destination_dropdown.value;
     alert('from: ' + startpt
         + '\nto: ' + destpt);
+    console.log(start_dropdown.value);
+    for(var p in points ){
+
+    }
 
 }
+
 destination_dropdown.onclick = function(e){
     if(destination_dropdown.options.length == 1)
         for(var f=0;f<36;++f){
@@ -84,6 +86,7 @@ destination_dropdown.onclick = function(e){
         this.add(option, 0);
     }
 }
+
 sidewalk_toggle.onclick = function(e) {
     building_toggle.className = '';
     campus_toggle.className = '';
